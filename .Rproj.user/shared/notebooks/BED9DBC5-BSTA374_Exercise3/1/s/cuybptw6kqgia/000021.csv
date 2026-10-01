@@ -1,0 +1,7 @@
+"0",""
+"0","sigmas <- c(sig / 3, sig, sig * 3)                   # too small, defensible, too large"
+"0","surf   <- lapply(sigmas, function(s) density(pp, sigma = s, eps = 50) * 1e6)"
+"0","zmax   <- max(sapply(surf, max))                      # one scale for all panels"
+"0",""
+"0",""
+"0","par(mfrow = c(1, 3))"

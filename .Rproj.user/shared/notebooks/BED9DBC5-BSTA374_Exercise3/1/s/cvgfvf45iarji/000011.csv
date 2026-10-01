@@ -1,0 +1,6 @@
+"0","#| label: f-cube-static"
+"0","#| eval: !expr isFALSE(knitr::is_html_output())"
+"0",""
+"0","scatterplot3d::scatterplot3d(cube$E, cube$N, cube$day, pch = 16, cex.symbols = 0.4,"
+"0","                             color = as.integer(factor(cube$hood)),"
+"0","                             xlab = ""easting (m)"", ylab = ""northing (m)"", zlab = ""day"")"

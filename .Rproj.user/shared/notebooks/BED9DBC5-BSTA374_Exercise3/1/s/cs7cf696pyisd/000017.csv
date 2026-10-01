@@ -1,0 +1,4 @@
+"0",""
+"0","env <- envelope(pp, Lest, nsim = 99, correction = ""isotropic"","
+"0","                global = TRUE, verbose = FALSE)"
+"0","plot(env, . - r ~ r, main = ""Centred L Function with Global CSR Envelope"", xlab = ""Distance r (m)"", ylab = ""L(r) - r"", legend = FALSE)"

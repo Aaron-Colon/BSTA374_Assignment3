@@ -23,7 +23,7 @@ format:
     code-overflow: wrap
 prefer-html: true
 execute:
-  eval: false
+  eval: true
   echo: true
 ---
 
@@ -551,13 +551,16 @@ for (i in seq_along(by_month)) {
 par(mfrow = c(1, 1))
 
 
-xy  <- st_coordinates(cases)
+xy <- st_coordinates(cases)
 
 cube <- data.frame(
-  E = xy[, 1], 
+  E = xy[, 1],
   N = xy[, 2],
-  day = as.numeric(cases$onset_date - min(cases$onset_date)),
-  hood = cases$neighborhood)
+  day = as.numeric(
+    cases$onset_date - min(cases$onset_date)
+  ),
+  hood = cases$neighborhood
+)
 
 # BONUS
 library(sparr)
@@ -628,12 +631,29 @@ par(mfrow = c(1, 1))
 #| label: f-cube-html
 #| eval: !expr knitr::is_html_output()
 
-plot_ly(cube, x = ~E, y = ~N, z = ~day, color = ~hood,
-        type = "scatter3d", mode = "markers",
-        marker = list(size = 3, opacity = 0.75)) |>
-  layout(scene = list(xaxis = list(title = "easting (m)"),
-                      yaxis = list(title = "northing (m)"),
-                      zaxis = list(title = "day of study")))
+plotly::plot_ly(
+  cube,
+  x = ~E,
+  y = ~N,
+  z = ~day,
+  color = ~hood,
+  type = "scatter3d",
+  mode = "markers",
+  marker = list(
+    size = 3,
+    opacity = 0.75
+  )
+) |>
+  plotly::layout(
+    scene = list(
+      xaxis = list(title = "Easting (m)"),
+      yaxis = list(title = "Northing (m)"),
+      zaxis = list(title = "Day of study"),
+      camera = list(
+        eye = list(x = 1.6, y = 1.6, z = 0.9)
+      )
+    )
+  )
 ```
 
 ```{r}
