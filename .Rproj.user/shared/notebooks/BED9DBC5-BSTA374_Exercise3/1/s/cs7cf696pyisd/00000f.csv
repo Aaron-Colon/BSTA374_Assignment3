@@ -1,0 +1,4 @@
+"0","#| label: d-starter"
+"0",""
+"0","L <- Lest(pp, correction = ""isotropic"")"
+"0","plot(L, . - r ~ r, main = ""Centred L Function"", xlab = ""Distance r (m)"", ylab = ""L(r) - r"", legend = FALSE)"
